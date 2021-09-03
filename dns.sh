@@ -6,11 +6,11 @@ MYIP=$(wget -qO- icanhazip.com);
 echo "Script By geo"
 clear
 apt install jq curl -y
-DOMAIN=polarisvpn.cf
+DOMAIN=dnsmaker360.com
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-SUB_DOMAIN=${sub}.polarisvpn.cf
-CF_ID=jconadera@gmail.com
-CF_KEY=e95c28a344251e89a0c752171d590ce39f6b9
+SUB_DOMAIN=${sub}.dnsmaker360.com
+CF_ID=gomezyoseph4@gmail.com
+CF_KEY=b90529f1aaf651f99c2e2a48395126e8f908b
 set -euo pipefail
 IP=$(wget -qO- icanhazip.com);
 echo "Updating DNS for ${SUB_DOMAIN}..."
@@ -39,4 +39,4 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
 echo "Host : $SUB_DOMAIN"
 echo $SUB_DOMAIN > /root/domain
-rm -f /root/cf.sh
+rm -f /root/dns.sh
